@@ -150,7 +150,7 @@ const filter1 = () => {
 
     const oddArray = [];
     for (let i = 0; i < numArray.length; i++) {
-        if (numArray[i] % 2 === 1 || numArray[i] % 2 === -1) {
+        if (numArray[i] % 2 !== 0) {
             oddArray.push(numArray[i]);
         }
     }
@@ -164,7 +164,28 @@ const filter2 = () => {
     const numArrayAsStrings = numString.split(",");
     const numArray = numArrayAsStrings.map(convertToNumber); 
     
-    oddArray = numArray.filter(number => number % 2 === 1 || number % 2 === -1);
+    oddArray = numArray.filter(number => number % 2 !== 0);
     console.log(oddArray);
     oddArray.forEach(number => console.log(number));
-}
+};
+
+
+const filterModifyArray = () => {
+    // Filter out all numbers that aren't between 8-15.
+    // Do not create a new array; modify the existing array.
+    // Do _not_ return anything.
+
+    const numbersIRandomlyPutIn = [0, 8, 17, 13, 14, 9, 3, 0, 22, 12];
+
+    filter3(numbersIRandomlyPutIn);
+    console.log(numbersIRandomlyPutIn);
+};
+
+const filter3 = (numbersToFilter) => {
+    //my code here
+    for (let i = numbersToFilter.length - 1; i >= 0; i--){
+        if (numbersToFilter[i] < 8 || numbersToFilter[i] >15) {
+            numbersToFilter.splice(i, 1)
+        }
+    };
+};

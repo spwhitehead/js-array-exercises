@@ -22,11 +22,13 @@ body {
     background-color: goldenrod;
     color: #1f1f1f;
     transition: 0.3s;
+    box-shadow: 0 0 25px 10px violet;
 }
 
 .button:active {
     background-color: #1f1f1f;
     color: goldenrod;
     border-color: goldenrod;
-    transition: 0.3s;
+    transition: 0.1s;
+    transform: scale(50);
 }

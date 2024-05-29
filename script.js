@@ -129,3 +129,42 @@ const numberFilterForEach = (nums) => {
     });
     return result;
 };
+
+const filter1 = () => {
+    // Use a single prompt, ask for a list of numbers ✅
+    // Split nubmers into array ✅
+    // Filter out even numbers (keep odd) into new array ✅
+    //      - Use a For loop ✅
+    // Loop through and print each number one at a time (the odd numbers) ✅
+    //
+    // Extra Challenges:
+    //      - Use map to turn the array of strings into numbers ✅
+    //      - Use a while loop
+    //      - Use the filter function ✅
+    //      - Use a foreach loop ✅
+    //      - add the result as a <li> to a list somewhere 
+    
+    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
+    const numArrayAsStrings = numString.split(",");
+    const numArray = numArrayAsStrings.map(convertToNumber);
+
+    const oddArray = [];
+    for (let i = 0; i < numArray.length; i++) {
+        if (numArray[i] % 2 === 1 || numArray[i] % 2 === -1) {
+            oddArray.push(numArray[i]);
+        }
+    }
+    console.log(oddArray);
+
+    oddArray.forEach(number => console.log(number));
+};
+
+const filter2 = () => {
+    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
+    const numArrayAsStrings = numString.split(",");
+    const numArray = numArrayAsStrings.map(convertToNumber); 
+    
+    oddArray = numArray.filter(number => number % 2 === 1 || number % 2 === -1);
+    console.log(oddArray);
+    oddArray.forEach(number => console.log(number));
+}

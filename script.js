@@ -98,3 +98,34 @@ const map3 = () => {
 
     // console.log(numArray)
 }
+
+
+const testNumberFilter = () => {
+    const nums = [1,2,3,4,5,6,7,8,-23,-1,-223,100];
+    const filteredNumbers = numberFilterForEach(nums);
+    console.log(filteredNumbers); // [1,2,3,4,5]
+};
+
+const numberFilter = (nums) => {
+    const result = [];
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] >= 0 && nums[i] <= 5) {
+            result.push(nums[i]);
+        }
+    }
+    return result;
+}
+
+const numberFilterFilter = (nums) => {
+    return result = nums.filter(number => number >= 0 && number <=5);
+}
+
+const numberFilterForEach = (nums) => {
+    const result = [];
+    nums.forEach(number => {
+        if (number <=5 && number >= 0) {
+            result.push(number);
+        }
+    });
+    return result;
+};

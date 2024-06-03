@@ -1,3 +1,10 @@
+const getArray = () => {
+    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
+    const numArrayAsStrings = numString.split(",");
+    const numArray = numArrayAsStrings.map(convertToNumber);
+    return numArray;
+}
+
 function loop1() {
     let fruits = ["apple", "banana", "cherry"];
     for (let i=0; i < fruits.length; i++) {
@@ -31,9 +38,7 @@ const convertToNumber = (stringNumber) => parseInt(stringNumber.trim());
 const doubleNumber = (nums) => nums * 2;
 
 const map1 = () => {
-    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
-    const numArrayAsStrings = numString.split(",");
-    const numArray = numArrayAsStrings.map(convertToNumber);
+    let numArray = getArray();
     //     stringNumber.trim();
     //     return parseInt(stringNumber); 
     // });
@@ -46,9 +51,7 @@ const map1 = () => {
 };
 
 const map2 = () => {
-    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
-    const numArrayAsStrings = numString.split(",");
-    const nums = numArrayAsStrings.map(convertToNumber);
+    let nums = getArray();
     const doubled = nums.map(doubleNumber);
     const sortedDoubledDsc = [...doubled].sort((a, b) => b - a) // Descending order
     const sortedDoubledAsc = [...doubled].sort((a, b) => a - b) // Ascending order
@@ -60,9 +63,7 @@ const map2 = () => {
 
 const map3 = () => {
     // loop through numbers. If even, double it. If odd, triple it.
-    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
-    const numArrayAsStrings = numString.split(",");
-    const numArray = numArrayAsStrings.map(convertToNumber);
+    let numArray = getArray();
 
     // const converted = numArray.map((num) => {
     //     if (num % 2 === 0){
@@ -144,9 +145,7 @@ const filter1 = () => {
     //      - Use a foreach loop ✅
     //      - add the result as a <li> to a list somewhere 
     
-    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
-    const numArrayAsStrings = numString.split(",");
-    const numArray = numArrayAsStrings.map(convertToNumber);
+    let numArray = getArray();
 
     const oddArray = [];
     for (let i = 0; i < numArray.length; i++) {
@@ -160,11 +159,9 @@ const filter1 = () => {
 };
 
 const filter2 = () => {
-    const numString = prompt("Enter numbers separated by commas (e.g. 3, 4, 5):");
-    const numArrayAsStrings = numString.split(",");
-    const numArray = numArrayAsStrings.map(convertToNumber); 
-    
-    oddArray = numArray.filter(number => number % 2 !== 0);
+    let numArray = getArray();
+
+    let oddArray = numArray.filter(number => number % 2 !== 0);
     console.log(oddArray);
     oddArray.forEach(number => console.log(number));
 };
@@ -188,4 +185,27 @@ const filter3 = (numbersToFilter) => {
             numbersToFilter.splice(i, 1)
         }
     };
+};
+
+
+const addArray = () => {
+    // Write a function that takes an array of numbers, adds them together, and returns the result
+    let nums = getArray();
+    // const nums = [1,2,3,4,5,6,7,8,9];
+
+    const sum = nums.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+    }, 0);
+
+    const max = nums.reduce((accumulator, currentValue) => {
+        return currentValue > accumulator ? currentValue : accumulator;
+    }, nums[0]);
+    console.log(max);
+
+    // let sum = 0;
+    // nums.forEach(number => {
+    //     sum += number
+    // });
+    console.log(sum);
+    return sum;
 };
